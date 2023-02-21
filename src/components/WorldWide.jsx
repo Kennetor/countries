@@ -29,7 +29,8 @@ export default function WorldWide() {
   return (
     <>
       <div style={colors}>
-        <div className="w-full border-b-2 flex justify-between">
+        {/* Navbar Component? */}
+        {/* <div className="w-full border-b-2 flex justify-between">
           <h1 className="flex ml-20 text-2xl my-6">Where in the world?</h1>
           <button
             onClick={toggleTheme}
@@ -40,7 +41,7 @@ export default function WorldWide() {
           >
             Dark Mode
           </button>
-        </div>
+        </div> */}
         {selectedCountry ? (
           <CountryDetails
             country={selectedCountry}
