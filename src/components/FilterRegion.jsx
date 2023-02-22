@@ -1,7 +1,7 @@
 import React from "react";
-// import { useTheme } from "./ThemeContext";
+import { useTheme } from "./ThemeContext";
 function FilterRegion({ onRegionChange }) {
-  //   const colorTheme = useTheme();
+  const colorTheme = useTheme();
 
   function handleRegionClick(region) {
     onRegionChange(region);
@@ -10,12 +10,17 @@ function FilterRegion({ onRegionChange }) {
   return (
     <div className="mt-12 mr-32">
       <div className="dropdown">
-        <label tabIndex={0} className="btn m-1">
+        <label
+          tabIndex={0}
+          className="btn m-1"
+          style={{ background: colorTheme ? "white" : "black" }}
+        >
           Filter by Region
         </label>
         <ul
           tabIndex={0}
-          className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white text-black"
+          className="dropdown-content menu p-2 shadow rounded-box w-52 "
+          style={{ background: colorTheme ? "white" : "black" }}
         >
           <li>
             <a onClick={() => handleRegionClick("Africa")}>Africa</a>
