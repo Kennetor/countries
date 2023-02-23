@@ -1,8 +1,6 @@
-import React from "react";
 import { useTheme } from "./ThemeContext";
 
-function CountryDetails({ country }) {
-  //   console.log(country);
+function CountryDetails({ country, onBackClick }) {
   const colorTheme = useTheme();
   return (
     <div
@@ -12,6 +10,12 @@ function CountryDetails({ country }) {
         background: colorTheme ? "white" : "#2b3945",
       }}
     >
+      <button
+        onClick={onBackClick}
+        className="btn flex absolute top-32 left-10"
+      >
+        back
+      </button>
       <img
         src={country.flags.svg}
         className="w-96 object-cover border-2 translate-y-40 ml-10"

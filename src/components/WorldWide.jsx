@@ -8,9 +8,10 @@ import Navbar from "./Navbar";
 import SearchCountry from "./SearchCountry";
 
 export default function WorldWide() {
-  const colorTheme = useTheme();
-  const [selectedRegion, setSelectedRegion] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedRegion, setSelectedRegion] = useState(null);
+  const [searchInput, setSearchInput] = useState("");
+  const colorTheme = useTheme();
 
   const handleRegionChange = (region) => {
     setSelectedRegion(region);
@@ -18,10 +19,13 @@ export default function WorldWide() {
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
   };
-  //   function handleSearchInput(e) {
-  //     setSearchInput(e.target.value);
-  //   }
 
+  function handleSearchInput(e) {
+    setSearchInput(e.target.value);
+  }
+  const handleBackClick = () => {
+    setSelectedCountry(null);
+  };
   const colors = {
     backgroundColor: colorTheme ? "white" : "black",
     color: colorTheme ? "black" : "white",
@@ -33,16 +37,17 @@ export default function WorldWide() {
         {selectedCountry ? (
           <CountryDetails
             country={selectedCountry}
-            onBackClick={() => setSelectedCountry(null)}
+            onBackClick={handleBackClick}
           />
         ) : (
           <>
             <div className="flex justify-between flex-wrap">
-              <SearchCountry />
+              <SearchCountry onChange={handleSearchInput} />
               <FilterRegion onRegionChange={handleRegionChange} />
             </div>
             <Country
               region={selectedRegion}
+              searchInput={searchInput} // pass searchInput to the Country component
               onCountryClick={handleCountryClick}
             />
           </>

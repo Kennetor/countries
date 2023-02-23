@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-function Country({ region, onCountryClick }) {
+function Country({ region, onCountryClick, searchInput }) {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -8,14 +8,25 @@ function Country({ region, onCountryClick }) {
     if (region) {
       url = `https://restcountries.com/v3.1/region/${region}`;
     }
+    if (searchInput) {
+      url = `https://restcountries.com/v3.1/name/${searchInput}`;
+    }
     fetch(url)
       .then((response) => response.json())
       .then((data) => setCountries(data));
-  }, [region]);
+  }, [region, searchInput]);
+
+  if (!Array.isArray(countries)) {
+    return (
+      <div className="mt-10 text-center text-gray-500 min-h-screen">
+        No countries found
+      </div>
+    );
+  }
 
   return (
     <div>
-      <div className="flex justify-around mt-10">
+      <div className="flex justify-around mt-10 min-h-screen">
         <div className="grid md:grid-cols-4 gap-20 ">
           {countries.map((country) => (
             <div
