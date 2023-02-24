@@ -13,14 +13,14 @@ function FilterRegion({ onRegionChange }) {
         <label
           tabIndex={0}
           className="btn m-1"
-          style={{ background: colorTheme ? "white" : "black" }}
+          style={{ background: colorTheme ? "white" : "#2b3945" }}
         >
           Filter by Region
         </label>
         <ul
           tabIndex={0}
           className="dropdown-content menu p-2 shadow rounded-box w-52 "
-          style={{ background: colorTheme ? "white" : "black" }}
+          style={{ background: colorTheme ? "white" : "#2b3945" }}
         >
           <li>
             <a onClick={() => handleRegionClick("Africa")}>Africa</a>

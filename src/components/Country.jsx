@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { useTheme } from "./ThemeContext";
 
 function Country({ region, onCountryClick, searchInput }) {
   const [countries, setCountries] = useState([]);
-
+  const colorTheme = useTheme();
   useEffect(() => {
     let url = "https://restcountries.com/v3.1/all";
     if (region) {
@@ -32,11 +33,16 @@ function Country({ region, onCountryClick, searchInput }) {
             <div
               key={country.name.common}
               className="border-2 w-60 rounded-lg h-72"
+              style={{
+                borderColor: colorTheme ? "#BFBFBF" : "#2b3945",
+                background: colorTheme ? "white" : "#2b3945",
+              }}
               onClick={() => onCountryClick(country)}
             >
               <img
                 src={country.flags.svg}
                 className="w-full h-32 object-cover border-b-2"
+                style={{ borderColor: colorTheme ? "white" : "#2b3945" }}
               />
               <div className="text-justify ml-6">
                 <h1 className="mt-2 leading-10 font-bold">

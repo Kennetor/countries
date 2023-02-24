@@ -27,8 +27,8 @@ export default function WorldWide() {
     setSelectedCountry(null);
   };
   const colors = {
-    backgroundColor: colorTheme ? "white" : "black",
-    color: colorTheme ? "black" : "white",
+    backgroundColor: colorTheme ? "white" : "#202c37",
+    color: colorTheme ? "#202c37" : "white",
   };
   return (
     <>
