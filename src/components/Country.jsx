@@ -32,17 +32,17 @@ function Country({ region, onCountryClick, searchInput }) {
           {countries.map((country) => (
             <div
               key={country.name.common}
-              className="border-2 w-60 rounded-lg h-72"
+              className="border-2 w-60 rounded-lg h-72 shadow-md"
               style={{
-                borderColor: colorTheme ? "#BFBFBF" : "#2b3945",
+                borderColor: colorTheme ? "" : "#2b3945",
                 background: colorTheme ? "white" : "#2b3945",
               }}
               onClick={() => onCountryClick(country)}
             >
               <img
                 src={country.flags.svg}
-                className="w-full h-32 object-cover border-b-2"
-                style={{ borderColor: colorTheme ? "white" : "#2b3945" }}
+                className="w-full h-32 object-cover shadow-sm"
+                style={{ borderColor: colorTheme ? "#708090" : "#2b3945" }}
               />
               <div className="text-justify ml-6">
                 <h1 className="mt-2 leading-10 font-bold">

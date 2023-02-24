@@ -13,7 +13,10 @@ function FilterRegion({ onRegionChange }) {
         <label
           tabIndex={0}
           className="btn m-1"
-          style={{ background: colorTheme ? "white" : "#2b3945" }}
+          style={{
+            background: colorTheme ? "white" : "#2b3945",
+            borderColor: colorTheme ? "gray" : "#2b3945",
+          }}
         >
           Filter by Region
         </label>
