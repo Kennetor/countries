@@ -32,7 +32,7 @@ function Country({ region, onCountryClick, searchInput }) {
           {countries.map((country) => (
             <div
               key={country.name.common}
-              className="border-2 w-60 rounded-lg h-72 shadow-md"
+              className="border-2 w-96 rounded-lg h-96 shadow-md text-2xl"
               style={{
                 borderColor: colorTheme ? "" : "#2b3945",
                 background: colorTheme ? "white" : "#2b3945",
@@ -41,25 +41,27 @@ function Country({ region, onCountryClick, searchInput }) {
             >
               <img
                 src={country.flags.svg}
-                className="w-full h-32 object-cover shadow-sm"
+                className="w-full h-44 object-cover shadow-sm rounded-t-lg"
                 style={{ borderColor: colorTheme ? "#708090" : "#2b3945" }}
               />
               <div className="text-justify ml-6">
-                <h1 className="mt-2 leading-10 font-bold">
+                <h1 className="mt-6 leading-10 font-bold">
                   {country.name.common}
                 </h1>
-                <p>
-                  <span className="font-medium">Population: </span>
-                  {country.population.toLocaleString()}
-                </p>
-                <p>
-                  <span className="font-medium">Region: </span>
-                  {country.region}
-                </p>
-                <p>
-                  <span className="font-medium">Capital: </span>
-                  {country.capital}
-                </p>
+                <div className="text-xl mt-2 leading-8">
+                  <p>
+                    <span className="font-bold">Population: </span>
+                    {country.population.toLocaleString()}
+                  </p>
+                  <p>
+                    <span className="font-bold">Region: </span>
+                    {country.region}
+                  </p>
+                  <p>
+                    <span className="font-bold">Capital: </span>
+                    {country.capital}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

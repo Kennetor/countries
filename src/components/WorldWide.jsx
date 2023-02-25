@@ -47,7 +47,7 @@ export default function WorldWide() {
             </div>
             <Country
               region={selectedRegion}
-              searchInput={searchInput} // pass searchInput to the Country component
+              searchInput={searchInput}
               onCountryClick={handleCountryClick}
             />
           </>

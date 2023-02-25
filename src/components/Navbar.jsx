@@ -13,8 +13,8 @@ export default function Navbar() {
         borderColor: colorTheme ? "#888888" : "#202c37",
       }}
     >
-      <h1 className="flex ml-20 text-2xl my-6">Where in the world?</h1>
-      <button onClick={toggleTheme} className="mr-12">
+      <h1 className="flex ml-20 text-3xl my-6">Where in the world?</h1>
+      <button onClick={toggleTheme} className="mr-12 text-3xl">
         Dark Mode
       </button>
     </div>
