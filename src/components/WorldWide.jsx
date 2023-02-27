@@ -19,7 +19,6 @@ export default function WorldWide() {
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
   };
-
   function handleSearchInput(e) {
     setSearchInput(e.target.value);
   }

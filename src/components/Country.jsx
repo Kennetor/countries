@@ -28,11 +28,11 @@ function Country({ region, onCountryClick, searchInput }) {
   return (
     <div>
       <div className="flex justify-around mt-10 min-h-screen">
-        <div className="grid md:grid-cols-4 gap-20 ">
+        <div className="grid md:grid-cols-4 gap-10 ">
           {countries.map((country) => (
             <div
               key={country.name.common}
-              className="border-2 w-96 rounded-lg h-96 shadow-md text-2xl"
+              className="border-2 w-72 rounded-lg h-96 shadow-md text-2xl"
               style={{
                 borderColor: colorTheme ? "" : "#2b3945",
                 background: colorTheme ? "white" : "#2b3945",

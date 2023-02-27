@@ -12,7 +12,7 @@ export default function SearchCountry({ onChange }) {
           borderColor: colorTheme ? "white" : "#2b3945",
         }}
         placeholder="Search for a country..."
-        className="px-4 py-2 rounded-lg shadow-md mr-4 border-2 flex mt-12 ml-16 w-96"
+        className="px-4 py-2 rounded-lg shadow-md mr-4 border-2 flex mt-12 md:ml-20 md:w-96"
         onChange={onChange}
       />
     </div>
