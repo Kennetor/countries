@@ -17,6 +17,7 @@ function FilterRegion({ onRegionChange }) {
             background: colorTheme ? "white" : "#2b3945",
             borderColor: colorTheme ? "gray" : "#2b3945",
             textTransform: "lowercase",
+            color: colorTheme ? "black" : "white",
           }}
         >
           <span style={{ textTransform: "uppercase" }}>F</span>ilter by&nbsp;
