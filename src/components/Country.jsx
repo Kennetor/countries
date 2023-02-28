@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "./ThemeContext";
 
-function Country({ region, onCountryClick, searchInput }) {
+export const Country = ({ region, onCountryClick, searchInput }) => {
   const [countries, setCountries] = useState([]);
   const colorTheme = useTheme();
   useEffect(() => {
@@ -24,7 +24,6 @@ function Country({ region, onCountryClick, searchInput }) {
       </div>
     );
   }
-
   return (
     <div>
       <div className="flex justify-around mt-10 min-h-screen">
@@ -44,20 +43,20 @@ function Country({ region, onCountryClick, searchInput }) {
                 className="w-full h-32 object-cover shadow-sm"
                 style={{ borderColor: colorTheme ? "#708090" : "#2b3945" }}
               />
-              <div className="text-justify ml-4">
-                <h1 className="mt-2 leading-10 font-bold">
+              <div className="text-justify ml-2 font-Nunito-s">
+                <h1 className="mt-2 leading-10 font-Nunito">
                   {country.name.common}
                 </h1>
                 <p>
-                  <span className="font-medium">Population: </span>
+                  <span className="font-Nunito-m text-md">Population: </span>
                   {country.population.toLocaleString()}
                 </p>
                 <p>
-                  <span className="font-medium">Region: </span>
+                  <span className="font-Nunito-m text-md">Region: </span>
                   {country.region}
                 </p>
                 <p>
-                  <span className="font-medium">Capital: </span>
+                  <span className="font-Nunito-m text-md">Capital: </span>
                   {country.capital}
                 </p>
               </div>
@@ -67,6 +66,6 @@ function Country({ region, onCountryClick, searchInput }) {
       </div>
     </div>
   );
-}
+};
 
 export default Country;

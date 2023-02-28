@@ -8,17 +8,19 @@ function FilterRegion({ onRegionChange }) {
   }
 
   return (
-    <div className="mt-12 md:mr-20 ml-4 md:ml-0">
+    <div className="mt-12 md:mr-28 ml-4 md:ml-0 ">
       <div className="dropdown">
         <label
           tabIndex={0}
-          className="btn m-1"
+          className="btn m-1 font-Nunito-m tracking-widest"
           style={{
             background: colorTheme ? "white" : "#2b3945",
             borderColor: colorTheme ? "gray" : "#2b3945",
+            textTransform: "lowercase",
           }}
         >
-          Filter by Region
+          <span style={{ textTransform: "uppercase" }}>F</span>ilter by&nbsp;
+          <span style={{ textTransform: "uppercase" }}>R</span>egion
         </label>
         <ul
           tabIndex={0}

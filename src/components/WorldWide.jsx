@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "./ThemeContext";
 // Components
 import Country from "./Country";
@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import SearchCountry from "./SearchCountry";
 
 export default function WorldWide() {
+  const [allCountries, setAllCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(null);
   const [searchInput, setSearchInput] = useState("");
@@ -26,6 +27,14 @@ export default function WorldWide() {
     backgroundColor: colorTheme ? "white" : "#202c37",
     color: colorTheme ? "#202c37" : "white",
   };
+
+  useEffect(() => {
+    const url = "https://restcountries.com/v3.1/all";
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setAllCountries(data));
+  }, []);
+
   return (
     <>
       <div style={colors}>
@@ -34,6 +43,8 @@ export default function WorldWide() {
           <CountryDetails
             country={selectedCountry}
             returnBtn={() => setSelectedCountry(null)}
+            allCountries={allCountries}
+            setSelectedCountry={setSelectedCountry}
           />
         ) : (
           <>
@@ -45,6 +56,7 @@ export default function WorldWide() {
               region={selectedRegion}
               searchInput={searchInput}
               onCountryClick={handleCountryClick}
+              allCountries={allCountries}
             />
           </>
         )}

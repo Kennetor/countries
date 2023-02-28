@@ -1,4 +1,3 @@
-// Main Example of a Context Component
 import { createContext, useContext, useState } from "react";
 
 // Custom Hooks
@@ -16,7 +15,7 @@ export function useThemeUpdate() {
 export function ThemeProvider({ children }) {
   const [colorTheme, setColorTheme] = useState(true);
 
-  // Toggle button (on/off)
+  // Toggle button
   function toggleTheme() {
     setColorTheme((prevColorTheme) => !prevColorTheme);
   }

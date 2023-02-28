@@ -18,14 +18,16 @@ export default function Navbar() {
         borderColor: colorTheme ? "#888888" : "#202c37",
       }}
     >
-      <h1 className="flex ml-6 md:ml-20 md:text-3xl my-6 font-bold">
+      <h1 className="flex ml-6 md:ml-20 md:text-3xl my-6 font-Nunito">
         Where in the world?
       </h1>
-      {/* Toggle Dark-Mode */}
-      <button onClick={toggleTheme} className="mr-6 md:mr-12 md:text-3xl">
+      <button
+        onClick={toggleTheme}
+        className="mr-6 md:mr-12 md:text-xl font-Nunito-m"
+      >
         <img
           src={darkMode}
-          className="h-6 absolute right-28 md:right-52 top-6 md:top-8"
+          className="h-6 absolute right-28 md:right-40 top-6 md:top-[29px]"
         />
         Dark Mode
       </button>

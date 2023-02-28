@@ -16,12 +16,12 @@ export default function SearchCountry({ onChange }) {
           borderColor: colorTheme ? "white" : "#2b3945",
         }}
         placeholder="Search for a country..."
-        className="px-6 py-4 rounded-lg shadow-md mr-4 border-2 flex mt-8 md:mt-12 md:ml-20 mx-auto w-[20em] md:w-96 text-center "
+        className="px-6 py-4 rounded-lg shadow-md mr-4 border-2 flex mt-8 md:mt-12 md:ml-28 mx-auto w-[20em] md:w-96 text-center font-Nunito-m"
         onChange={onChange}
       />
       <img
         src={magGlass}
-        className="h-6 md:h-8 left-10 md:left-24 top-[7.7rem] md:top-[9.2em] absolute"
+        className="h-6 md:h-8 left-10 md:left-32 top-[7.7rem] md:top-[9.2em] absolute"
       />
     </div>
   );
