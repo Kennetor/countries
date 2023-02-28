@@ -12,72 +12,84 @@ function CountryDetails({ country, onBackClick, allCountries }) {
           return borderCountry ? borderCountry.name.common : borderCountryCode;
         })
       : [];
-  console.log(country);
+
   return (
     <>
       <div
-        className="bg-blue-200 h-screen"
+        className="h-screen"
         style={{
           color: colorTheme ? "#2b3945" : "white",
           background: colorTheme ? "white" : "#202c37",
+          height: "1000px",
         }}
       >
+        {/* Return button */}
         <button
           onClick={onBackClick}
-          className="btn flex absolute top-28 md:top-32 left-6 w-32"
-          style={{ background: colorTheme ? "white" : "#2b3945" }}
+          className="btn flex absolute top-24 md:top-32 left-6 w-32"
+          style={{
+            background: colorTheme ? "white" : "#2b3945",
+            color: colorTheme ? "black" : "white",
+          }}
         >
-          back
+          <span className="text-xl mb-2 mx-2 -translate-x-2">←</span>back
         </button>
+        {/* Flag */}
         <div className="md:block flex justify-center">
           <img
             src={country.flags.svg}
-            className="w-[20em] md:w-[30em] object-contain border-2 md:ml-6 absolute top-48 md:top-60"
+            className="w-[20em] md:w-[30em] object-contain border-2 md:ml-6 absolute top-40 md:top-60"
             style={{ borderColor: colorTheme ? "white" : "#2b3945" }}
           />
         </div>
-        <div className="md:absolute mt-32 ml-10 md:ml-0 md:mt-20 text-left top-36 left-60 md:translate-y-0 translate-y-72">
-          <p className="mt-6 md:translate-x-80 ">
-            <div className="text-5xl">{country.name.common}</div>
-          </p>
-          <div className="md:grid grid-flow-row grid-cols-2 gap-4 md:translate-x-80 md:w-[40em] ml-2 md:ml-0">
-            <p className="mt-12">
-              <span className="font-bold">Native Name: </span>
-              {country.altSpellings[1]}
-            </p>
-            <p className="md:mt-12">
-              <span className="font-bold">Population: </span>
-              {country.population.toLocaleString()}
-            </p>
-            <p>
-              <span className="font-bold">Region: </span> {country.region}
-            </p>
-            <p>
-              <span className="font-bold">Sub Region: </span>
-              {country.subregion}
-            </p>
-            <p>
-              <span className="font-bold">Capital: </span> {country.capital}
-            </p>
-            {/* fix desktop/mobile css */}
-            <div className="mt-10 md:mt-0">
+        {/* Country Name */}
+        <div className="md:absolute ml-10 md:ml-0 md:mt-20 text-left top-36 left-60 md:translate-y-0 translate-y-72">
+          <div className="mt-6 md:translate-x-80 ">
+            <p className="text-5xl">{country.name.common}</p>
+          </div>
+          {/* Country Details */}
+          <div className="md:grid grid-flow-row grid-cols-2 mt-6 md:translate-x-80 md:w-[40em] ml-2 md:ml-0">
+            <div className="col-span-2 md:col-span-3 grid gap-2">
               <p>
-                <span className="font-bold">Top Level Domain: </span>
-                {country.tld.join(" ")}
+                <span className="font-bold">Native Name: </span>
+                {country.altSpellings[1]}
               </p>
               <p>
-                <span className="font-bold">Currencies: </span>
-                {Object.values(country.currencies)
-                  .map((currency) => currency.name)
-                  .join(", ")}
+                <span className="font-bold">Population: </span>
+                {country.population.toLocaleString()}
               </p>
               <p>
-                <span className="font-bold">Languages: </span>
-                {Object.values(country.languages).join(", ")}
+                <span className="font-bold">Region: </span> {country.region}
               </p>
+              <p>
+                <span className="font-bold">Sub Region: </span>
+                {country.subregion}
+              </p>
+              <p>
+                <span className="font-bold">Capital: </span> {country.capital}
+              </p>
+            </div>
+            <div className="md:col-start-4 md:col-end-5">
+              <div className="mt-10 md:mt-0 grid gap-2">
+                <p>
+                  <span className="font-bold">Top Level Domain: </span>
+                  {country.tld.join(" ")}
+                </p>
+                <p>
+                  <span className="font-bold">Currencies: </span>
+                  {Object.values(country.currencies)
+                    .map((currency) => currency.name)
+                    .join(", ")}
+                </p>
+                <p>
+                  <span className="font-bold">Languages: </span>
+                  {Object.values(country.languages).join(", ")}
+                </p>
+              </div>
             </div>
           </div>
 
+          {/* If country has array with borders - render, if not - null */}
           <div className="mt-6 md:translate-x-80">
             {borderCountries.length > 0 ? (
               <div className="inline md:w-full md:flex">
@@ -95,9 +107,9 @@ function CountryDetails({ country, onBackClick, allCountries }) {
                       key={index}
                       href={borderCountryURL}
                       className="border-slate-400 border-2 rounded mt-4 w-20 md:w-24 ml-2 md:ml-8 mb-20"
-                      // onClick={() =>
-                      //   handleBorderCountryClick(borderCountryCode)
-                      // }
+                      onClick={() =>
+                        handleBorderCountryClick(borderCountryCode)
+                      }
                     >
                       {borderCountry}
                     </button>

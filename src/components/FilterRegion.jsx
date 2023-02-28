@@ -8,7 +8,7 @@ function FilterRegion({ onRegionChange }) {
   }
 
   return (
-    <div className="mt-12 mr-20">
+    <div className="mt-12 md:mr-20 ml-4 md:ml-0">
       <div className="dropdown">
         <label
           tabIndex={0}
