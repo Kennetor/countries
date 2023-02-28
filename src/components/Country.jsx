@@ -44,7 +44,7 @@ function Country({ region, onCountryClick, searchInput }) {
                 className="w-full h-32 object-cover shadow-sm"
                 style={{ borderColor: colorTheme ? "#708090" : "#2b3945" }}
               />
-              <div className="text-justify ml-6">
+              <div className="text-justify ml-4">
                 <h1 className="mt-2 leading-10 font-bold">
                   {country.name.common}
                 </h1>

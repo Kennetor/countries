@@ -22,9 +22,6 @@ export default function WorldWide() {
   function handleSearchInput(e) {
     setSearchInput(e.target.value);
   }
-  const handleBackClick = () => {
-    setSelectedCountry(null);
-  };
   const colors = {
     backgroundColor: colorTheme ? "white" : "#202c37",
     color: colorTheme ? "#202c37" : "white",
@@ -36,7 +33,7 @@ export default function WorldWide() {
         {selectedCountry ? (
           <CountryDetails
             country={selectedCountry}
-            onBackClick={handleBackClick}
+            returnBtn={() => setSelectedCountry(null)}
           />
         ) : (
           <>

@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { useTheme } from "./ThemeContext";
 
-function CountryDetails({ country, onBackClick, allCountries }) {
+function CountryDetails({ country, returnBtn, allCountries }) {
+  //   const [selectedCountry, setSelectedCountry] = useState(null);
+
   const colorTheme = useTheme();
+  console.log(country);
   // Check if country has array with borders, then show first 3
   const borderCountries =
     country.borders && Array.isArray(country.borders)
@@ -12,20 +16,20 @@ function CountryDetails({ country, onBackClick, allCountries }) {
           return borderCountry ? borderCountry.name.common : borderCountryCode;
         })
       : [];
+  // Handle clicking on a border country
 
   return (
     <>
       <div
-        className="h-screen"
         style={{
           color: colorTheme ? "#2b3945" : "white",
           background: colorTheme ? "white" : "#202c37",
-          height: "1000px",
+          height: "1100px",
         }}
       >
         {/* Return button */}
         <button
-          onClick={onBackClick}
+          onClick={returnBtn}
           className="btn flex absolute top-24 md:top-32 left-6 w-32"
           style={{
             background: colorTheme ? "white" : "#2b3945",
@@ -107,9 +111,6 @@ function CountryDetails({ country, onBackClick, allCountries }) {
                       key={index}
                       href={borderCountryURL}
                       className="border-slate-400 border-2 rounded mt-4 w-20 md:w-24 ml-2 md:ml-8 mb-20"
-                      onClick={() =>
-                        handleBorderCountryClick(borderCountryCode)
-                      }
                     >
                       {borderCountry}
                     </button>
