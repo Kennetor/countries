@@ -2,6 +2,7 @@ import { useTheme } from "./ThemeContext";
 
 export const CountryFacts = ({ country }) => {
   const colorTheme = useTheme();
+  console.log(country);
   return (
     <>
       <div className="md:block flex justify-center">
@@ -18,7 +19,7 @@ export const CountryFacts = ({ country }) => {
         <div className="col-span-2 md:col-span-3 grid gap-2 mt-6">
           <p>
             <span className="font-Nunito">Native Name: </span>
-            {country.altSpellings[1]}
+            {country.altSpellings[1] || country.altSpellings[0]}
           </p>
           <p>
             <span className="font-Nunito">Population: </span>
